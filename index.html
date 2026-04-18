@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<!-- compilar scss-->
+<!-- sass --watch site/styles/style.scss:site/styles/css-compilado/style.css -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta keywords="Sair, Festa, Comer, Comida, Restaurante, Show, Música, Ao vivo, Diversão, Role, Novidade">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="site/styles/css-compilado/style.css">
+    <link rel="stylesheet" href="site/styles/cursor-music-animations.css">
+    <link id="page-icon" rel="shortcut icon" type="imagex/png" href="./site/assets/logo-outz.png">
+    <title>OUTz</title>
+</head>
+
+<body>
+    <a id="botao-flutuante"
+        href="https://api.whatsapp.com/send?phone=553599308235&text=Olá, gostaria de saber mais sobre o OUTz."
+        target="_blank">
+        <img src="./site/assets/icones/icon-whatsapp.png" alt="">
+    </a>
+
+    <section id="menu-section">
+        <div class="section-content">
+            <div id="header-logo-div">
+                <a href="#mensagem-section">
+                    <img id="logo-white" class="logo" src="./site/assets/logo-outz-escrita-white.png" alt="logo OUTz">
+                    <img id="logo-dark" src="./site/assets/logo-outz-escrita-dark.png" alt="logo OUTz">
+                </a>
+            </div>
+            <div id="menu-itens">
+                <a href="#musico-section" class="menu-link">Para músicos</a>
+                <a href="#estabelecimento-section" class="menu-link">Para estabelecimentos</a>
+                <a href="planos.html" class="menu-link">Planos</a>
+                <a target="_blank"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSfC5Ypiy4VkwZSGc7qSInuI2hi1kOTC6TDzDqp8PwrGFmciSA/viewform">
+                    <button class="button-white">Cadastre-se</button>
+                </a>
+            </div>
+            <div id="menu-mobile-open"></div>
+            <div id="mobile-menu-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div id="mobile-menu" class="mobile-menu">
+                <div id="header-mobile-logo-div">
+                    <img src="./site/assets/logo-outz-escrita-white.png" alt="logo OUTz">
+                </div>
+                <div id="menu-mobile-itens">
+                    <a href="#musico-section" class="menu-link">Para músicos</a>
+                    <a href="#estabelecimento-section" class="menu-link">Para estabelecimentos</a>
+                <a href="planos.html" class="menu-link">Planos</a>
+                    <a target="_blank"
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSfC5Ypiy4VkwZSGc7qSInuI2hi1kOTC6TDzDqp8PwrGFmciSA/viewform">
+                        <button class="button-white">Cadastre-se</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="top-banner-section">
+        <div class="section-content">
+            <img src="./site/assets/ondas.gif" alt="Ondas" class="ondas-gif">
+            <a href="#mensagem-section">
+                <img src="./site/assets/logo-outz.png" alt="" class="top-banner-imagem">
+            </a>
+        </div>
+    </section>
+
+    <section id="mensagem-section">
+            <h2 id="texto-principal">Crie experiências inesquecíveis em um instante, encontre o melhor que sua cidade tem a oferecer!</h2> 
+            <div id="frases-container"></div>   
+    </section>
+
+    <section id="publico-section" class="section-with-image">
+        <div class="section-content">
+            <h2>Os melhores lugares para curtir sua noite</h2>
+            <p>Não sabe onde curtir a noite? Nós temos a solução! Com nosso app, você descobre os restaurantes com
+                música ao vivo que mais combinam com o seu estilo. Nunca mais fique na dúvida sobre onde aproveitar
+                eventos incríveis!</p>
+        </div>
+        <div class="section-img">
+            <img src="./site/assets/celular-publico-section.png" alt="">
+        </div>
+    </section>
+
+    <section id="musico-section" class="section-with-image">
+        <div class="section-img">
+            <img src="./site/assets/celular-musico-section.png" alt="">
+        </div>
+        <div class="section-content">
+            <h2>Apareça para quem precisa de perfis como o seu</h2>
+            <p>Conecte-se facilmente com estabelecimentos que buscam o seu talento. Mostre seus estilos musicais,
+                disponibilidade e comece a mostrar do que você é capaz!</p>
+        </div>
+    </section>
+
+    <section id="estabelecimento-section" class="section-with-image">
+        <div class="section-content">
+            <h2>Encontrar novos talentos nunca foi tão fácil</h2>
+            <p>Encontre os melhores músicos para animar sua noite. Conecte-se com talentos que combinam com o seu
+                ambiente e ofereça aos seus clientes experiências inesquecíveis!</p>
+        </div>
+        <div class="section-img">
+            <img src="./site/assets/celular-estabelecimento-section.png" alt="">
+        </div>
+    </section>
+
+    <section id="footer-section">
+        <div class="section-content">
+            <div class="section-img">
+                <img src="./site/assets/logo-outz.png" alt="">
+            </div>
+            <div class="lista">
+                <h5 class="font-thin font-white text-upper fs-15">conteúdo</h5>
+                <div class="div-conteudo">
+                    <img src="./site/assets/icones/icon-publico.png" alt="">
+                    <a href="#publico-section">Para o público</a>
+                </div>
+                <div class="div-conteudo">
+                    <img src="./site/assets/icones/icon-musico.png" alt="">
+                    <a href="#musico-section">Para músicos</a>
+                </div>
+                <div class="div-conteudo">
+                    <img src="./site/assets/icones/icon-estabelecimento.png" alt="">
+                    <a href="#estabelecimento-section">Para estabelecimentos</a>
+                </div>
+                <div class="div-conteudo">
+                    <img src="./site/assets/icones/icon-estabelecimento.png" alt="">
+                    <a href="planos.html">Planos</a>
+                </div>
+            </div>
+            <div class="lista">
+                <h5 class="font-thin font-white text-upper fs-15">contatos</h5>
+                <div class="div-conteudo">
+                    <img src="./site/assets/icones/icon-whatsapp.png" alt="">
+                    <p>(35) 99930-8235</p>
+                </div>
+                <div class="div-conteudo">
+                    <img src="./site/assets/icones/icon-instagram.png" alt="">
+                    <p>outz.oficial</p>
+                </div>
+                <div class="div-conteudo">
+                    <img src="./site/assets/icones/icon-email.png" alt="">
+                    <p>contato@outz.com</p>
+                </div>
+            </div>
+            <div class="div-botao">
+                <h5>junte-se ao app</h5>
+                <a class="zi-1" target="_blank"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSfC5Ypiy4VkwZSGc7qSInuI2hi1kOTC6TDzDqp8PwrGFmciSA/viewform">
+                    <button class="button-orange">Cadastre-se</button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="site/scripts/scroll-menu.js"></script>
+    <script src="site/scripts/menu-mobile.js"></script>
+    <script src="site/scripts/scroll-mensagem.js"></script>
+    <script src="site/scripts/mensagem.js"></script>
+    <script src="site/scripts/imagem.js"></script>
+    <script src="site/scripts/mensagem-flutuante.js"></script>
+    <script src="site/scripts/cursor-music-interactions.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OUTz - Encontre música e gastronomia em um só lugar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background: #f7f7f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .w-100 {
+            width: 100%;
+        }
+
+        /* HEADER */
+        header {
+            background: #ff541b;
+            color: #f7f7f5;
+            padding: 120px 0 140px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-blob {
+            position: absolute;
+            background: #FF671B;
+            opacity: 0.6;
+        }
+
+        .blob-1 {
+            width: 700px;
+            height: 700px;
+            border-radius: 45% 55% 62% 38% / 53% 47% 53% 47%;
+            top: -250px;
+            right: -200px;
+            animation: morph 8s ease-in-out infinite;
+        }
+
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            bottom: -150px;
+            left: -150px;
+            animation: morph 10s ease-in-out infinite reverse;
+        }
+
+        .blob-3 {
+            width: 350px;
+            height: 350px;
+            border-radius: 70% 30% 50% 50% / 60% 70% 30% 40%;
+            top: 50%;
+            left: 10%;
+            opacity: 0.3;
+            animation: morph 12s ease-in-out infinite;
+        }
+
+        @keyframes morph {
+
+            0%,
+            100% {
+                border-radius: 45% 55% 62% 38% / 53% 47% 53% 47%;
+                transform: rotate(0deg) scale(1);
+            }
+
+            33% {
+                border-radius: 73% 27% 56% 44% / 49% 44% 56% 51%;
+                transform: rotate(120deg) scale(1.1);
+            }
+
+            66% {
+                border-radius: 28% 72% 44% 56% / 49% 40% 60% 51%;
+                transform: rotate(240deg) scale(0.9);
+            }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .logo-container {
+            width: 300px;
+            margin: 0 auto;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 3.2em;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            line-height: 1.2;
+        }
+
+        .tagline {
+            font-size: 1.5em;
+            margin-bottom: 50px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: #000e27;
+            color: #f7f7f5;
+            padding: 20px 55px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 15px 40px rgba(0, 14, 39, 0.4);
+            font-weight: 600;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 14, 39, 0.5);
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(0, 14, 39, 0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-button:hover {
+            background: #000e27;
+            transform: translateX(-5px);
+        }
+
+        /* SECTION TITLES */
+        .section-title {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 25px;
+            color: #000e27;
+            position: relative;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* HOW IT WORKS */
+        .how-section {
+            padding: 120px 0;
+            background: #f7f7f5;
+            position: relative;
+        }
+
+        .how-section::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: #FF671B;
+            opacity: 0.05;
+            border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+            top: -100px;
+            right: -100px;
+            z-index: 0;
+            animation: morph 15s ease-in-out infinite;
+        }
+
+        .how-section::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: #ff541b;
+            opacity: 0.03;
+            border-radius: 70% 30% 50% 50% / 30% 70% 50% 50%;
+            bottom: -100px;
+            left: 5%;
+            z-index: 0;
+            animation: morph 18s ease-in-out infinite reverse;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 70px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-card {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.4s;
+        }
+
+        .step-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 80px rgba(255, 84, 27, 0.15);
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #ff541b 0%, #FF671B 100%);
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8em;
+            font-weight: bold;
+            margin: 0 auto 30px;
+            color: #f7f7f5;
+            box-shadow: 0 10px 30px rgba(255, 84, 27, 0.3);
+        }
+
+        .step-card h3 {
+            font-size: 1.8em;
+            color: #000e27;
+            margin-bottom: 20px;
+        }
+
+        .step-card p {
+            font-size: 1.15em;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* BENEFITS SECTION */
+        .benefits-section {
+            padding: 120px 0;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefits-blob {
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            background: #000e27;
+            opacity: 0.02;
+            border-radius: 40% 60% 70% 30% / 60% 30% 70% 40%;
+            bottom: -200px;
+            left: -200px;
+            animation: morph 15s ease-in-out infinite;
+        }
+
+        .benefits-blob-2 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: #ff541b;
+            opacity: 0.03;
+            border-radius: 30% 70% 40% 60% / 70% 40% 60% 30%;
+            top: -150px;
+            right: -100px;
+            animation: morph 20s ease-in-out infinite reverse;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 70px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, #ff541b 0%, #FF671B 100%);
+            color: #f7f7f5;
+            padding: 50px 40px;
+            border-radius: 40% 60% 65% 35% / 45% 50% 50% 55%;
+            text-align: center;
+            transition: all 0.4s;
+            box-shadow: 0 15px 50px rgba(255, 84, 27, 0.25);
+        }
+
+        .benefit-card:nth-child(2n) {
+            border-radius: 60% 40% 35% 65% / 50% 45% 55% 50%;
+        }
+
+        .benefit-card:nth-child(3n) {
+            border-radius: 45% 55% 60% 40% / 55% 45% 55% 45%;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-15px) rotate(-2deg);
+            box-shadow: 0 25px 70px rgba(255, 84, 27, 0.35);
+        }
+
+        .benefit-icon {
+            font-size: 4em;
+            margin-bottom: 25px;
+            display: block;
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.7em;
+            margin-bottom: 15px;
+        }
+
+        .benefit-card p {
+            font-size: 1.1em;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        /* FOR WHO SECTION */
+        .for-who-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #000e27 0%, #1a2a4e 100%);
+            color: #f7f7f5;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .for-who-blob {
+            position: absolute;
+            background: #ff541b;
+            opacity: 0.08;
+        }
+
+        .for-who-blob-1 {
+            width: 800px;
+            height: 800px;
+            border-radius: 30% 70% 70% 30% / 30% 50% 50% 70%;
+            top: -300px;
+            right: -300px;
+            animation: morph 18s ease-in-out infinite;
+        }
+
+        .for-who-blob-2 {
+            width: 600px;
+            height: 600px;
+            border-radius: 60% 40% 50% 50% / 40% 60% 50% 50%;
+            bottom: -200px;
+            left: -200px;
+            animation: morph 22s ease-in-out infinite reverse;
+        }
+
+        .for-who-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 60px;
+            margin-top: 70px;
+        }
+
+        .audience-card {
+            background: rgba(247, 247, 245, 0.05);
+            padding: 60px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(247, 247, 245, 0.1);
+            transition: all 0.4s;
+        }
+
+        .audience-card:hover {
+            background: rgba(247, 247, 245, 0.08);
+            border-color: #ff541b;
+            transform: translateY(-10px);
+        }
+
+        .audience-card h3 {
+            color: #ff541b;
+            font-size: 2.3em;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .audience-card p {
+            font-size: 1.2em;
+            line-height: 1.9;
+            margin-bottom: 25px;
+            color: #f7f7f5;
+        }
+
+        .audience-list {
+            margin-top: 30px;
+        }
+
+        .audience-item {
+            display: flex;
+            align-items: start;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+
+        .audience-item::before {
+            content: '✓';
+            color: #ff541b;
+            font-weight: bold;
+            font-size: 1.5em;
+            flex-shrink: 0;
+        }
+
+        /* FUTURE SECTION */
+        .future-section {
+            padding: 120px 0;
+            background: #f7f7f5;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .future-section::before {
+            content: '';
+            position: absolute;
+            width: 650px;
+            height: 650px;
+            background: #ff541b;
+            opacity: 0.04;
+            border-radius: 45% 55% 60% 40% / 50% 45% 55% 50%;
+            top: 10%;
+            right: -200px;
+            animation: morph 16s ease-in-out infinite;
+        }
+
+        .future-section::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: #FF671B;
+            opacity: 0.05;
+            border-radius: 60% 40% 45% 55% / 40% 60% 50% 50%;
+            bottom: 5%;
+            left: -150px;
+            animation: morph 20s ease-in-out infinite reverse;
+        }
+
+        .future-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 80px;
+            font-size: 1.3em;
+            line-height: 1.9;
+            color: #555;
+            position: relative;
+            z-index: 1;
+        }
+
+        .future-featured {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .future-card {
+            background: white;
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s;
+        }
+
+        .future-card.featured {
+            background: linear-gradient(135deg, #ff541b 0%, #FF671B 100%);
+            color: #f7f7f5;
+            padding: 70px 60px;
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(255, 84, 27, 0.25);
+            border: 3px solid #ff541b;
+        }
+
+        .future-card.featured:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 40px 100px rgba(255, 84, 27, 0.35);
+        }
+
+        .future-card.featured h3 {
+            color: #f7f7f5;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .future-card.featured p {
+            color: #f7f7f5;
+            font-size: 1.3em;
+            text-align: center;
+            margin-bottom: 25px;
+            line-height: 2;
+        }
+
+        .future-card.featured .future-tag {
+            background: #000e27;
+            font-size: 1.1em;
+            padding: 12px 30px;
+            display: inline-block;
+        }
+
+        .future-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 50px;
+            margin-top: 70px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .future-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
+        }
+
+        .future-card h3 {
+            color: #000e27;
+            font-size: 2em;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .future-card p {
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .future-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff541b 0%, #FF671B 100%);
+            color: #f7f7f5;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 0.95em;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .future-card.featured .future-tag-container {
+            text-align: center;
+        }
+
+        /* PRICING SECTION */
+        .pricing-section {
+            padding: 120px 0;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-section::before {
+            content: '';
+            position: absolute;
+            width: 550px;
+            height: 550px;
+            background: #ff541b;
+            opacity: 0.03;
+            border-radius: 50% 50% 40% 60% / 60% 40% 50% 50%;
+            top: -150px;
+            left: -150px;
+            animation: morph 14s ease-in-out infinite;
+        }
+
+        .pricing-card {
+            max-width: 500px;
+            margin: 60px auto 0;
+            background: #f7f7f5;
+            padding: 60px 50px;
+            border-radius: 25px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 3px solid #ff541b;
+            transition: all 0.4s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 35px 90px rgba(255, 84, 27, 0.2);
+        }
+
+        .pricing-card h3 {
+            font-size: 2.2em;
+            color: #000e27;
+            margin-bottom: 30px;
+        }
+
+        .pricing-free {
+            font-size: 4em;
+            font-weight: bold;
+            color: #ff541b;
+            margin: 30px 0;
+            display: block;
+        }
+
+        .pricing-feature {
+            font-size: 1.25em;
+            color: #333;
+            margin: 25px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            font-weight: 500;
+        }
+
+        .pricing-extra {
+            font-size: 1.15em;
+            color: #666;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .pricing-extra strong {
+            color: #ff541b;
+            font-size: 1.4em;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            background: linear-gradient(135deg, #ff541b 0%, #FF671B 100%);
+            color: #f7f7f5;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-blob {
+            position: absolute;
+            background: #000e27;
+            opacity: 0.15;
+            border-radius: 50% 50% 30% 70% / 60% 40% 60% 40%;
+            width: 700px;
+            height: 700px;
+            top: -250px;
+            right: -200px;
+            animation: morph 12s ease-in-out infinite;
+        }
+
+        .cta-blob-2 {
+            position: absolute;
+            background: #FF671B;
+            opacity: 0.3;
+            border-radius: 40% 60% 50% 50% / 50% 50% 40% 60%;
+            width: 500px;
+            height: 500px;
+            bottom: -180px;
+            left: -150px;
+            animation: morph 15s ease-in-out infinite reverse;
+        }
+
+        .cta-blob-3 {
+            position: absolute;
+            background: rgba(0, 14, 39, 0.2);
+            opacity: 0.4;
+            border-radius: 60% 40% 50% 50% / 40% 60% 50% 50%;
+            width: 400px;
+            height: 400px;
+            top: 50%;
+            right: 10%;
+            animation: morph 18s ease-in-out infinite;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-content h2 {
+            font-size: 3.5em;
+            margin-bottom: 30px;
+        }
+
+        .cta-content p {
+            font-size: 1.5em;
+            max-width: 900px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #000e27;
+            color: #f7f7f5;
+            padding: 70px 0 40px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            width: 100px;
+            margin: 0 auto;
+            margin-bottom: 25px;
+        }
+
+        .footer-tagline {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .social-links {
+            margin: 35px 0;
+        }
+
+        .social-links a {
+            color: #f7f7f5;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.6em;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: #ff541b;
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .section-title {
+                font-size: 2.2em;
+            }
+
+            .logo {
+                font-size: 2.5em;
+                padding: 20px 35px;
+            }
+
+            .steps-grid,
+            .benefits-grid,
+            .audience-grid,
+            .future-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-content h2 {
+                font-size: 2.5em;
+            }
+
+            .future-card.featured {
+                padding: 50px 40px;
+            }
+
+            .future-card.featured h3 {
+                font-size: 2em;
+            }
+
+            .future-card.featured p {
+                font-size: 1.15em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html" class="back-button">
+        <span>←</span> Voltar para o Início
+    </a>
+    <header>
+        <div class="header-blob blob-1"></div>
+        <div class="header-blob blob-2"></div>
+        <div class="header-blob blob-3"></div>
+        <div class="container header-content">
+            <div class="logo-container">
+                <img class="w-100" src="./site/assets/logo-outz.png" alt="">
+            </div>
+            <h1>Encontre música e gastronomia<br>em um só lugar</h1>
+            <p class="tagline">Descubra estabelecimentos com shows ao vivo que combinam perfeitamente com seu gosto
+                musical e gastronômico</p>
+            <a href="#download" class="cta-button">Baixar Grátis</a>
+        </div>
+    </header>
+
+    <section class="how-section">
+        <div class="container">
+            <h2 class="section-title">Como Funciona</h2>
+            <p class="section-subtitle">Em 30 segundos, encontre o lugar perfeito para sua próxima experiência</p>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Escolha o Estilo Musical</h3>
+                    <p>Jazz, Rock, Samba, MPB, Blues, Música Eletrônica e muito mais. Selecione o ritmo que combina com
+                        seu momento.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Escolha o Cardápio</h3>
+                    <p>Pizza, Sushi, Hambúrguer, Comida Italiana, Brasileira, Vegana... Encontre a comida que você está
+                        procurando.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Descubra Eventos</h3>
+                    <p>Veja todos os shows e eventos ao vivo acontecendo próximo de você agora ou nos próximos dias.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits-section">
+        <div class="benefits-blob"></div>
+        <div class="benefits-blob benefits-blob-2"></div>
+        <div class="container">
+            <h2 class="section-title">Por Que Usar o OUTz?</h2>
+            <p class="section-subtitle">A forma mais fácil de descobrir experiências memoráveis</p>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="benefit-icon">🎵</span>
+                    <h3>Filtro Musical Único</h3>
+                    <p>O único app que combina música ao vivo com gastronomia de forma integrada</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🍕</span>
+                    <h3>Busca por Cardápio</h3>
+                    <p>Encontre exatamente o tipo de comida que você quer comer hoje</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">📍</span>
+                    <h3>Eventos Próximos</h3>
+                    <p>Descubra o que está acontecendo perto de você em tempo real</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">⚡</span>
+                    <h3>Rápido e Simples</h3>
+                    <p>Em 30 segundos você encontra seu lugar perfeito</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">💰</span>
+                    <h3>Totalmente Gratuito</h3>
+                    <p>Use todas as funcionalidades sem pagar nada</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🎯</span>
+                    <h3>Personalizado</h3>
+                    <p>Recomendações baseadas nas suas preferências</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="for-who-section">
+        <div class="for-who-blob for-who-blob-1"></div>
+        <div class="for-who-blob for-who-blob-2"></div>
+        <div class="container for-who-content">
+            <h2 class="section-title" style="color: #f7f7f5;">Para Quem é o OUTz?</h2>
+            <p class="section-subtitle" style="color: #f7f7f5; opacity: 0.9;">Conectamos pessoas e estabelecimentos
+                através de experiências únicas</p>
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <h3><span>🎉</span> Para Você</h3>
+                    <p>Não perca mais tempo procurando o lugar perfeito. O OUTz apresenta os melhores estabelecimentos
+                        da sua região com música ao vivo.</p>
+                    <div class="audience-list">
+                        <div class="audience-item">Descubra novos lugares com o seu estilo</div>
+                        <div class="audience-item">Acompanhe eventos dos seus lugares favoritos</div>
+                        <div class="audience-item">Planeje suas saídas com antecedência</div>
+                        <div class="audience-item">Economize tempo sem pagar nada</div>
+                    </div>
+                </div>
+                <div class="audience-card">
+                    <h3><span>🏪</span> Para Estabelecimentos</h3>
+                    <p>Conecte-se com pessoas que realmente procuram experiências gastronômicas e musicais. Aumente sua
+                        visibilidade e atraia o público certo.</p>
+                    <div class="audience-list">
+                        <div class="audience-item">Crie um catálogo digital completo</div>
+                        <div class="audience-item">Divulgue seus eventos e promoções</div>
+                        <div class="audience-item">Destaque suas apresentações ao vivo</div>
+                        <div class="audience-item">Alcance novos clientes na sua região</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="future-section">
+        <div class="container">
+            <h2 class="section-title">O Que Vem Por Aí</h2>
+            <div class="future-intro">
+                <p>Estamos trabalhando em novas funcionalidades para tornar sua experiência ainda mais completa. Fique
+                    por dentro do que está chegando!</p>
+            </div>
+
+            <!-- Card em destaque -->
+            <div class="future-featured">
+                <div class="future-card featured">
+                    <h3><span>🎸</span> Plataforma para Artistas</h3>
+                    <p>Em breve, músicos poderão criar perfis profissionais e se conectar diretamente com
+                        estabelecimentos, facilitando oportunidades de apresentação e fortalecendo a cena musical local.
+                    </p>
+                    <div class="future-tag-container">
+                        <span class="future-tag">Em Breve</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Outros cards -->
+            <div class="future-grid">
+                <div class="future-card">
+                    <h3><span>📅</span> Reserva de Mesa</h3>
+                    <p>Reserve sua mesa antecipadamente pelo app e garanta seu lugar nos eventos mais concorridos sem
+                        complicação.</p>
+                    <span class="future-tag">Em Desenvolvimento</span>
+                </div>
+                <div class="future-card">
+                    <h3><span>📊</span> Lotação em Tempo Real</h3>
+                    <p>Veja quantas pessoas estão no estabelecimento antes de sair de casa e escolha o melhor momento
+                        para sua visita.</p>
+                    <span class="future-tag">Roadmap 2025</span>
+                </div>
+                <div class="future-card">
+                    <h3><span>💳</span> Pagamento no App</h3>
+                    <p>Sistema de pagamento integrado para pedidos antecipados e ingressos, tornando tudo mais prático e
+                        rápido.</p>
+                    <span class="future-tag">Roadmap 2025</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-section">
+        <div class="container">
+            <h2 class="section-title">Para Estabelecimentos</h2>
+            <p class="section-subtitle">Comece gratuitamente e cresça com a gente</p>
+            <div class="pricing-card">
+                <h3>Plano Gratuito</h3>
+                <span class="pricing-free">Grátis</span>
+                <div class="pricing-feature">
+                    📅 1 evento por semana
+                </div>
+                <div class="pricing-feature">
+                    ✨ Perfil completo do estabelecimento
+                </div>
+                <div class="pricing-feature">
+                    📸 Galeria de fotos
+                </div>
+                <div class="pricing-feature">
+                    📱 Alcance na sua região
+                </div>
+                <div class="pricing-extra">
+                    Eventos extras por apenas <strong>R$ 9,90</strong> cada
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-blob"></div>
+        <div class="cta-blob cta-blob-2"></div>
+        <div class="cta-blob cta-blob-3"></div>
+        <div class="container cta-content">
+            <h2>Pronto para Descobrir?</h2>
+            <p>Cada saída é uma oportunidade para explorar, descobrir e se encantar. Transforme suas noites em
+                experiências memoráveis com música ao vivo e gastronomia de qualidade.</p>
+            <p style="font-size: 1.3em; font-weight: 600; margin-bottom: 40px;">Venha descobrir o mundo lá fora. Venha
+                viver com a OUTz.</p>
+            <a href="#download" class="cta-button"
+                style="background: #f7f7f5; color: #ff541b; font-size: 1.4em; padding: 22px 65px;">Baixar OUTz
+                Grátis</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img class="w-100" src="./site/assets/logo-outz.png" alt="">
+            </div>
+            <p class="footer-tagline">A combinação perfeita entre música e gastronomia</p>
+            <div class="social-links">
+                <a href="https://instagram.com/outzoficial" target="_blank">@outzoficial</a>
+            </div>
+            <p style="margin-top: 40px; color: #888;">© 2025 OUTz. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
