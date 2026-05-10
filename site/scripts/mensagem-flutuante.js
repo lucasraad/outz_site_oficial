@@ -8,56 +8,64 @@ const frases = [
   "FACILITAR A COMUNICAÇÃO"
 ];
 
-const section = document.getElementById("mensagem-section");
-const h2 = document.getElementById("texto-principal");
+function initFrasesFlutuantes() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
 
-function mostrarFrase() {
-  const fraseTexto = frases[Math.floor(Math.random() * frases.length)];
-  const frase = document.createElement("div");
-  frase.classList.add("frase");
-  frase.textContent = fraseTexto;
+  const container = document.getElementById("frases-container");
+  const section = document.getElementById("mensagem-section");
+  const h2 = document.getElementById("texto-principal");
+  if (!container || !section || !h2) return;
 
-  const sectionWidth = section.clientWidth;
-  const sectionHeight = section.clientHeight;
+  function mostrarFrase() {
+    const fraseTexto = frases[Math.floor(Math.random() * frases.length)];
+    const frase = document.createElement("div");
+    frase.classList.add("frase");
+    frase.textContent = fraseTexto;
 
-  // pega o tamanho real do h2 (zona proibida)
-  const rect = h2.getBoundingClientRect();
-  const sectionRect = section.getBoundingClientRect();
+    const sectionWidth = section.clientWidth;
+    const sectionHeight = section.clientHeight;
 
-  const forbidden = {
-    left: rect.left - sectionRect.left,
-    top: rect.top - sectionRect.top,
-    right: rect.right - sectionRect.left,
-    bottom: rect.bottom - sectionRect.top
-  };
+    const rect = h2.getBoundingClientRect();
+    const sectionRect = section.getBoundingClientRect();
 
-  let x, y;
-  let tries = 0;
+    const forbidden = {
+      left: rect.left - sectionRect.left,
+      top: rect.top - sectionRect.top,
+      right: rect.right - sectionRect.left,
+      bottom: rect.bottom - sectionRect.top
+    };
 
-  do {
-    x = Math.random() * (sectionWidth - 200);
-    y = Math.random() * (sectionHeight - 50);
-    tries++;
-    if (tries > 50) break; // evita loop infinito
-  } while (
-    x > forbidden.left - 150 &&
-    x < forbidden.right + 20 &&
-    y > forbidden.top - 50 &&
-    y < forbidden.bottom + 20
-  );
+    let x, y;
+    let tries = 0;
 
-  frase.style.left = `${x}px`;
-  frase.style.top = `${y}px`;
+    do {
+      x = Math.random() * (sectionWidth - 200);
+      y = Math.random() * (sectionHeight - 50);
+      tries++;
+      if (tries > 50) break;
+    } while (
+      x > forbidden.left - 150 &&
+      x < forbidden.right + 20 &&
+      y > forbidden.top - 50 &&
+      y < forbidden.bottom + 20
+    );
 
-  section.appendChild(frase);
+    frase.style.left = `${x}px`;
+    frase.style.top = `${y}px`;
 
-  setTimeout(() => frase.style.opacity = 1, 50);
+    container.appendChild(frase);
 
-  setTimeout(() => {
-    frase.style.opacity = 0;
-    setTimeout(() => frase.remove(), 1000);
-  }, 3000);
+    setTimeout(() => (frase.style.opacity = 1), 50);
+
+    setTimeout(() => {
+      frase.style.opacity = 0;
+      setTimeout(() => frase.remove(), 1000);
+    }, 3000);
+  }
+
+  setInterval(mostrarFrase, 2000);
 }
 
-setInterval(mostrarFrase, 2000);
-
+document.addEventListener("DOMContentLoaded", initFrasesFlutuantes);

@@ -1,6 +1,12 @@
 function animateOnScroll() {
     const section = document.getElementById("mensagem-section");
     const textElement = section.querySelector("h2");
+    if (!textElement) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        return;
+    }
+
     const text = textElement.innerText; // Obtém o texto completo
     textElement.innerText = ""; // Esvazia o conteúdo para iniciar o efeito
     let index = 0;

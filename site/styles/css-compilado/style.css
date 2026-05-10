@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Segoe-light";
   src: url(../../assets/fontes/Segoe-UI-Light.ttf);
@@ -34,7 +35,9 @@ a {
   width: fit-content;
 }
 
-button {
+button,
+a.button-white,
+a.button-orange {
   border: none;
   color: white;
   padding: calc(1.2rem + (100vw - 1920px) * 0.004) calc(3.5rem + (100vw - 1920px) * 0.03);
@@ -44,8 +47,12 @@ button {
   transition: background-position 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s;
   background-size: 210% 100%;
   background-position: 98% 0;
+  text-decoration: none;
+  display: inline-block;
 }
-button:hover {
+button:hover,
+a.button-white:hover,
+a.button-orange:hover {
   background-position: 0 0;
   transform: scale(1.02);
 }
@@ -318,43 +325,7 @@ section {
   }
 }
 
-
-#mensagem-section {  
-  position: relative;
-  background-color: #FEFEFE;
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 40px;
-}
-
-#mensagem-section h2 {
-  max-width: 800px;
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-  position: relative;
-  z-index: 2; /* texto sempre na frente */
-}
-
-.frase {
-  position: absolute;
-  font-size: 18px;
-  font-weight: bold;
-  color: #f28b82;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  pointer-events: none;
-  z-index: 1; /* frases ficam atrás do h2 */
-}
- 
-
-
-/* #mensagem-section {  
+#mensagem-section {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -367,7 +338,23 @@ section {
   background-position: center;
   padding: 12%;
   max-height: 100vh;
-} */
+}
+#mensagem-section #frases-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+#mensagem-section .frase {
+  position: absolute;
+  font-size: 18px;
+  font-weight: bold;
+  color: #f28b82;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  pointer-events: none;
+  z-index: 1;
+}
 #mensagem-section h2 {
   color: #FF541B;
   font-family: "Segoe-semibold";
@@ -377,6 +364,8 @@ section {
   text-transform: unset;
   width: 65%;
   min-height: 30rem;
+  position: relative;
+  z-index: 2;
 }
 
 .section-with-image .section-content {
@@ -471,6 +460,156 @@ section {
   text-transform: unset;
 }
 
+/* Download / lojas (index) — âncora #download (wrapper próprio: evita animação fade em .section-content) */
+#download.download-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: calc(4rem + (100vw - 1920px) * 0.02) 13% calc(5rem + (100vw - 1920px) * 0.02);
+  background: linear-gradient(180deg, #FFF9F9 0%, rgba(255, 84, 27, 0.06) 45%, #FFF9F9 100%);
+  min-height: auto;
+}
+#download.download-section .download-section__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  max-width: 40rem;
+  width: 100%;
+  text-align: center;
+}
+#download.download-section h2 {
+  color: #FF541B;
+  font-family: "Segoe-semibold";
+  font-size: calc(3.2rem + (100vw - 1920px) * 0.015);
+  line-height: calc(3.4rem + (100vw - 1920px) * 0.015);
+  text-align: center;
+  text-transform: unset;
+  margin-bottom: 1rem;
+}
+#download.download-section .download-section__lead {
+  color: #1B1B1B;
+  font-family: "Segoe";
+  font-size: calc(1.15rem + (100vw - 1920px) * 0.005);
+  line-height: calc(1.65rem + (100vw - 1920px) * 0.006);
+  text-align: center;
+  text-transform: unset;
+  margin-bottom: 2rem;
+  max-width: 36rem;
+}
+#download.download-section .download-apps {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  margin-bottom: 2rem;
+}
+#download.download-section .store-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 10rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 10vw;
+  font-family: "Segoe-semibold", sans-serif;
+  font-size: calc(0.85rem + (100vw - 1920px) * 0.003);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: 2px solid rgba(27, 27, 27, 0.35);
+  color: #1B1B1B;
+  background: rgba(255, 255, 255, 0.95);
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+#download.download-section .store-badge:hover:not(.store-badge--soon) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+#download.download-section .store-badge--soon {
+  opacity: 0.65;
+  cursor: default;
+  border-color: rgba(255, 84, 27, 0.45);
+  color: #666;
+  background: rgba(255, 255, 255, 0.85);
+}
+#download.download-section .download-qr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-top: 0.5rem;
+}
+#download.download-section .download-qr img {
+  display: block;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+}
+#download.download-section .download-qr figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #555;
+  max-width: 14rem;
+}
+
+/* Página legal (privacidade) */
+.legal-page {
+  padding: 6rem 13% 4rem;
+  max-width: 42rem;
+  margin: 0 auto;
+  min-height: 70vh;
+}
+.legal-page .legal-back {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: #FF541B;
+  font-family: "Segoe-semibold", sans-serif;
+  text-decoration: underline;
+}
+.legal-page h1 {
+  color: #FF541B;
+  font-family: "Segoe-semibold";
+  font-size: calc(2.5rem + (100vw - 1920px) * 0.012);
+  line-height: calc(2.7rem + (100vw - 1920px) * 0.012);
+  text-align: left;
+  text-transform: unset;
+  margin-bottom: 1.5rem;
+}
+.legal-page h2 {
+  color: #1B1B1B;
+  font-family: "Segoe-semibold";
+  font-size: 1.25rem;
+  line-height: 1.4rem;
+  text-align: left;
+  text-transform: unset;
+  margin: 2rem 0 0.75rem;
+}
+.legal-page p,
+.legal-page li {
+  color: #1B1B1B;
+  font-family: "Segoe";
+  font-size: 1rem;
+  line-height: 1.55rem;
+  text-align: left;
+  text-transform: unset;
+}
+.legal-page ul {
+  margin: 0.5rem 0 1rem 1.25rem;
+  list-style: disc;
+}
+.legal-page .legal-updated {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
 /* footer-section */
 #footer-section {
   display: flex;
@@ -480,19 +619,28 @@ section {
   flex-wrap: nowrap;
   position: relative;
   background-image: linear-gradient(to bottom left, #1B1B1B, #1B1B1B);
-  height: 15rem;
+  height: auto;
   width: 100%;
   background-position: center;
+  min-height: 15rem;
 }
-#footer-section .section-content {
+#footer-section .footer-inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: nowrap;
+}
+#footer-section .footer-inner .section-content {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: unset;
+  align-items: center;
   flex-wrap: nowrap;
   width: 100%;
 }
-#footer-section .section-content .section-img {
+#footer-section .footer-inner .section-content .section-img {
   display: flex;
   flex-direction: row;
   justify-content: unset;
@@ -500,10 +648,10 @@ section {
   flex-wrap: nowrap;
   width: 9rem;
 }
-#footer-section .section-content .section-img img {
+#footer-section .footer-inner .section-content .section-img img {
   width: 100%;
 }
-#footer-section .section-content h5 {
+#footer-section .footer-inner .section-content h5 {
   color: #FFF9F9;
   font-family: "Segoe-light";
   font-size: 0.85rem;
@@ -511,15 +659,15 @@ section {
   text-align: left;
   text-transform: uppercase;
 }
-#footer-section .section-content .lista {
+#footer-section .footer-inner .section-content .lista {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: unset;
   flex-wrap: nowrap;
 }
-#footer-section .section-content .lista p,
-#footer-section .section-content .lista a {
+#footer-section .footer-inner .section-content .lista p,
+#footer-section .footer-inner .section-content .lista a {
   color: #FFF9F9;
   font-family: "Segoe-semibold";
   font-size: 0.85rem;
@@ -527,36 +675,57 @@ section {
   text-align: left;
   text-transform: unset;
 }
-#footer-section .section-content .lista a {
+#footer-section .footer-inner .section-content .lista a {
   text-decoration: underline;
   transition: transform 0.3s, color 0.2s;
 }
-#footer-section .section-content .lista a:hover {
+#footer-section .footer-inner .section-content .lista a:hover {
   transform: scale(1.01);
   color: #FF671B;
 }
-#footer-section .section-content .lista .div-conteudo {
+#footer-section .footer-inner .section-content .lista .div-conteudo {
   display: flex;
   flex-direction: row;
   justify-content: unset;
   align-items: center;
   flex-wrap: nowrap;
 }
-#footer-section .section-content .lista .div-conteudo p,
-#footer-section .section-content .lista .div-conteudo a {
+#footer-section .footer-inner .section-content .lista .div-conteudo p,
+#footer-section .footer-inner .section-content .lista .div-conteudo a {
   margin-left: 1.1rem;
 }
-#footer-section .section-content .div-botao {
+#footer-section .footer-inner .section-content .lista .div-conteudo--no-icon a {
+  margin-left: 2.15rem;
+}
+#footer-section .footer-inner .section-content .div-botao {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
 }
-#footer-section .section-content .div-botao h5 {
+#footer-section .footer-inner .section-content .div-botao h5 {
   margin-bottom: 0.7rem;
 }
-
+#footer-section .footer-inner .footer-legal {
+  width: 100%;
+  text-align: center;
+  padding-top: 1.25rem;
+  margin-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+#footer-section .footer-inner .footer-legal a {
+  color: rgba(255, 255, 255, 0.75);
+  font-family: "Segoe-semibold";
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+  text-align: center;
+  text-transform: unset;
+  text-decoration: underline;
+}
+#footer-section .footer-inner .footer-legal a:hover {
+  color: #FF671B;
+}
 
 /* Botao flutuante */
 #botao-flutuante {
@@ -575,10 +744,10 @@ section {
   background: #FF671B;
   box-shadow: 0 1px 7px -4px #1B1B1B;
   transition: all 0.3s;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
-#botao-flutuante:hover { 
+#botao-flutuante:hover {
   transform: scale(1.03);
   background: #FF541B;
 }
@@ -599,6 +768,13 @@ section {
   }
   #mensagem-section h2 {
     width: 100%;
+  }
+  #download.download-section {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+  #download.download-section .download-section__lead {
+    font-size: calc(1.05rem + (100vw - 1920px) * 0.004);
   }
   #publico-section,
   #estabelecimento-section {
@@ -671,22 +847,29 @@ section {
     padding-bottom: 5%;
     height: fit-content;
   }
-  #footer-section .section-content {
+  #footer-section .footer-inner .section-content {
     flex-direction: column;
     align-items: center;
   }
-  #footer-section .section-content .section-img {
+  #footer-section .footer-inner .section-content .section-img {
     display: none;
   }
-  #footer-section .section-content .lista {
+  #footer-section .footer-inner .section-content .lista {
     margin-bottom: 2rem;
   }
-  #footer-section .section-content .lista h5 {
+  #footer-section .footer-inner .section-content .lista h5 {
     margin-bottom: 0.7rem;
     text-align: center;
   }
-  #footer-section .section-content .lista .div-conteudo {
+  #footer-section .footer-inner .section-content .lista .div-conteudo {
     padding: 0.5rem 0;
+  }
+  #footer-section .footer-inner .section-content .lista .div-conteudo--no-icon a {
+    margin-left: 0;
+  }
+  #footer-section .footer-inner .footer-legal {
+    margin-top: 0.5rem;
+    padding-top: 1rem;
   }
   #botao-flutuante {
     bottom: 1rem;

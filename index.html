@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 
 <!-- compilar scss-->
 <!-- sass --watch site/styles/style.scss:site/styles/css-compilado/style.css -->
@@ -7,19 +7,59 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta keywords="Sair, Festa, Comer, Comida, Restaurante, Show, Música, Ao vivo, Diversão, Role, Novidade">
+    <meta name="keywords" content="Sair, Festa, Comer, Comida, Restaurante, Show, Música, Ao vivo, Diversão, Role, Novidade">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="OUTz conecta você a bares e restaurantes com música ao vivo. Descubra experiências na sua cidade — público, músicos e estabelecimentos.">
+    <meta name="theme-color" content="#FF541B">
+    <meta name="robots" content="index,follow">
+    <!-- Troque https://outz.com pela URL pública real (canonical, Open Graph, Twitter e QR abaixo). -->
+    <link rel="canonical" href="https://outz.com/">
+
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="OUTz — música ao vivo e gastronomia">
+    <meta property="og:description"
+        content="Encontre o melhor da sua cidade: shows ao vivo, gastronomia e experiências. Para quem curte a noite, para músicos e para estabelecimentos.">
+    <meta property="og:url" content="https://outz.com/">
+    <meta property="og:image" content="https://outz.com/site/assets/logo-outz.png">
+    <meta property="og:image:alt" content="Logo OUTz">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OUTz — música ao vivo e gastronomia">
+    <meta name="twitter:description"
+        content="Encontre o melhor da sua cidade: shows ao vivo, gastronomia e experiências.">
+    <meta name="twitter:image" content="https://outz.com/site/assets/logo-outz.png">
+
     <link rel="stylesheet" href="site/styles/css-compilado/style.css">
     <link rel="stylesheet" href="site/styles/cursor-music-animations.css">
-    <link id="page-icon" rel="shortcut icon" type="imagex/png" href="./site/assets/logo-outz.png">
-    <title>OUTz</title>
+    <link id="page-icon" rel="shortcut icon" type="image/png" href="./site/assets/logo-outz.png">
+    <title>OUTz — música ao vivo e gastronomia</title>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "OUTz",
+      "description": "Aplicativo e comunidade para descobrir música ao vivo e gastronomia na sua cidade.",
+      "url": "https://outz.com/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "OUTz",
+        "url": "https://outz.com/",
+        "logo": "https://outz.com/site/assets/logo-outz.png",
+        "email": "contato@outz.com",
+        "sameAs": ["https://www.instagram.com/outz.oficial/"]
+      }
+    }
+    </script>
 </head>
 
 <body>
     <a id="botao-flutuante"
-        href="https://api.whatsapp.com/send?phone=553599308235&text=Olá, gostaria de saber mais sobre o OUTz."
-        target="_blank">
-        <img src="./site/assets/icones/icon-whatsapp.png" alt="">
+        href="https://api.whatsapp.com/send?phone=5535999308235&text=Olá, gostaria de saber mais sobre o OUTz."
+        target="_blank" rel="noopener noreferrer">
+        <img src="./site/assets/icones/icon-whatsapp.png" alt="Falar com o OUTz no WhatsApp">
     </a>
 
     <section id="menu-section">
@@ -34,10 +74,9 @@
                 <a href="#musico-section" class="menu-link">Para músicos</a>
                 <a href="#estabelecimento-section" class="menu-link">Para estabelecimentos</a>
                 <a href="planos.html" class="menu-link">Planos</a>
-                <a target="_blank"
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSfC5Ypiy4VkwZSGc7qSInuI2hi1kOTC6TDzDqp8PwrGFmciSA/viewform">
-                    <button class="button-white">Cadastre-se</button>
-                </a>
+                <a href="#download" class="menu-link">Baixar app</a>
+                <a class="button-white" target="_blank"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSfC5Ypiy4VkwZSGc7qSInuI2hi1kOTC6TDzDqp8PwrGFmciSA/viewform">Cadastre-se</a>
             </div>
             <div id="menu-mobile-open"></div>
             <div id="mobile-menu-toggle" class="hamburger">
@@ -52,11 +91,10 @@
                 <div id="menu-mobile-itens">
                     <a href="#musico-section" class="menu-link">Para músicos</a>
                     <a href="#estabelecimento-section" class="menu-link">Para estabelecimentos</a>
-                <a href="planos.html" class="menu-link">Planos</a>
-                    <a target="_blank"
-                        href="https://docs.google.com/forms/d/e/1FAIpQLSfC5Ypiy4VkwZSGc7qSInuI2hi1kOTC6TDzDqp8PwrGFmciSA/viewform">
-                        <button class="button-white">Cadastre-se</button>
-                    </a>
+                    <a href="planos.html" class="menu-link">Planos</a>
+                    <a href="#download" class="menu-link">Baixar app</a>
+                    <a class="button-white" target="_blank"
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSfC5Ypiy4VkwZSGc7qSInuI2hi1kOTC6TDzDqp8PwrGFmciSA/viewform">Cadastre-se</a>
                 </div>
             </div>
         </div>
@@ -72,8 +110,8 @@
     </section>
 
     <section id="mensagem-section">
-            <h2 id="texto-principal">Crie experiências inesquecíveis em um instante, encontre o melhor que sua cidade tem a oferecer!</h2> 
-            <div id="frases-container"></div>   
+            <h2 id="texto-principal">Crie experiências inesquecíveis em um instante, encontre o melhor que sua cidade tem a oferecer!</h2>
+            <div id="frases-container" aria-hidden="true"></div>
     </section>
 
     <section id="publico-section" class="section-with-image">
@@ -110,8 +148,27 @@
         </div>
     </section>
 
+    <section id="download" class="download-section" aria-labelledby="download-heading">
+        <div class="download-section__inner">
+            <h2 id="download-heading">Baixe o OUTz</h2>
+            <p class="download-section__lead">Em breve nas <strong>App Store</strong> e <strong>Google Play</strong>.
+                Enquanto isso, cadastre-se ou fale com a gente pelo WhatsApp.</p>
+            <div class="download-apps">
+                <span class="store-badge store-badge--soon" title="Disponível em breve">App Store</span>
+                <span class="store-badge store-badge--soon" title="Disponível em breve">Google Play</span>
+            </div>
+            <figure class="download-qr">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&amp;data=https%3A%2F%2Foutz.com%2F"
+                    width="180" height="180" alt="QR code para abrir o site OUTz no celular" loading="lazy"
+                    decoding="async">
+                <figcaption>Leia o QR para abrir o site no celular.</figcaption>
+            </figure>
+        </div>
+    </section>
+
     <section id="footer-section">
-        <div class="section-content">
+        <div class="footer-inner">
+            <div class="section-content">
             <div class="section-img">
                 <img src="./site/assets/logo-outz.png" alt="">
             </div>
@@ -133,6 +190,9 @@
                     <img src="./site/assets/icones/icon-estabelecimento.png" alt="">
                     <a href="planos.html">Planos</a>
                 </div>
+                <div class="div-conteudo div-conteudo--no-icon">
+                    <a href="#download">Baixar app</a>
+                </div>
             </div>
             <div class="lista">
                 <h5 class="font-thin font-white text-upper fs-15">contatos</h5>
@@ -142,7 +202,7 @@
                 </div>
                 <div class="div-conteudo">
                     <img src="./site/assets/icones/icon-instagram.png" alt="">
-                    <p>outz.oficial</p>
+                    <a href="https://www.instagram.com/outz.oficial/" target="_blank" rel="noopener noreferrer">outz.oficial</a>
                 </div>
                 <div class="div-conteudo">
                     <img src="./site/assets/icones/icon-email.png" alt="">
@@ -151,17 +211,18 @@
             </div>
             <div class="div-botao">
                 <h5>junte-se ao app</h5>
-                <a class="zi-1" target="_blank"
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSfC5Ypiy4VkwZSGc7qSInuI2hi1kOTC6TDzDqp8PwrGFmciSA/viewform">
-                    <button class="button-orange">Cadastre-se</button>
-                </a>
+                <a class="zi-1 button-orange" target="_blank"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSfC5Ypiy4VkwZSGc7qSInuI2hi1kOTC6TDzDqp8PwrGFmciSA/viewform">Cadastre-se</a>
+            </div>
+            </div>
+            <div class="footer-legal">
+                <a href="privacidade.html">Política de privacidade</a>
             </div>
         </div>
     </section>
 
     <script src="site/scripts/scroll-menu.js"></script>
     <script src="site/scripts/menu-mobile.js"></script>
-    <script src="site/scripts/scroll-mensagem.js"></script>
     <script src="site/scripts/mensagem.js"></script>
     <script src="site/scripts/imagem.js"></script>
     <script src="site/scripts/mensagem-flutuante.js"></script>

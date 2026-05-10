@@ -94,7 +94,9 @@ a {
     width: fit-content;
 }
 
-button {
+button,
+a.button-white,
+a.button-orange {
     border: none;
     color: white;
     padding: responsive-item(1.2rem, .004) responsive-item(3.5rem, .03);
@@ -104,6 +106,8 @@ button {
     transition: background-position .3s ease-in-out, color .3s ease-in-out, transform .3s;
     background-size: 210% 100%;
     background-position: 98% 0;
+    text-decoration: none;
+    display: inline-block;
 
     &:hover {
         background-position: 0 0;
@@ -388,10 +392,30 @@ section {
     padding: $section-padding - 1%;
     max-height: 100vh;
 
+    #frases-container {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .frase {
+        position: absolute;
+        font-size: 18px;
+        font-weight: bold;
+        color: #f28b82;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        pointer-events: none;
+        z-index: 1;
+    }
+
     h2 {
         @include createText($light-orange, $section-title-family, $section-title-size, $section-title-line-height, center);
         width: 65%;
         min-height: 30rem;
+        position: relative;
+        z-index: 2;
     }
 }
 
@@ -455,12 +479,143 @@ section {
     }
 }
 
+/* Download / lojas (index) — âncora #download (wrapper próprio: evita animação fade em .section-content) */
+#download.download-section {
+    @include createFlexItem(column, center, center);
+    padding: responsive-item(4rem, .02) $section-padding responsive-item(5rem, .02);
+    background: linear-gradient(180deg, $white 0%, rgba(255, 84, 27, 0.06) 45%, $white 100%);
+    min-height: auto;
+
+    .download-section__inner {
+        @include createFlexItem(column, center, center);
+        max-width: 40rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    h2 {
+        @include createText($light-orange, $section-title-family, responsive-item(3.2rem, .015), responsive-item(3.4rem, .015), center);
+        margin-bottom: 1rem;
+    }
+
+    .download-section__lead {
+        @include createText($black, $section-text-family, responsive-item(1.15rem, .005), responsive-item(1.65rem, .006), center);
+        margin-bottom: 2rem;
+        max-width: 36rem;
+    }
+
+    .download-apps {
+        @include createFlexItem(row, center, center, wrap);
+        gap: 1rem 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .store-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 10rem;
+        padding: 0.65rem 1.25rem;
+        border-radius: 10vw;
+        font-family: "Segoe-semibold", sans-serif;
+        font-size: responsive-item(0.85rem, .003);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        border: 2px solid rgba(27, 27, 27, 0.35);
+        color: $black;
+        background: rgba(255, 255, 255, 0.95);
+        text-decoration: none;
+        transition: transform 0.2s, box-shadow 0.2s;
+
+        &:hover:not(.store-badge--soon) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+    }
+
+    .store-badge--soon {
+        opacity: 0.65;
+        cursor: default;
+        border-color: rgba(255, 84, 27, 0.45);
+        color: #666;
+        background: rgba(255, 255, 255, 0.85);
+    }
+
+    .download-qr {
+        @include createFlexItem(column, center, center);
+        margin-top: 0.5rem;
+
+        img {
+            display: block;
+            width: 10rem;
+            height: 10rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        figcaption {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            color: #555;
+            max-width: 14rem;
+        }
+    }
+}
+
+/* Página legal (privacidade) */
+.legal-page {
+    padding: 6rem $section-padding 4rem;
+    max-width: 42rem;
+    margin: 0 auto;
+    min-height: 70vh;
+
+    .legal-back {
+        display: inline-block;
+        margin-bottom: 2rem;
+        color: $light-orange;
+        font-family: "Segoe-semibold", sans-serif;
+        text-decoration: underline;
+    }
+
+    h1 {
+        @include createText($light-orange, $section-title-family, responsive-item(2.5rem, .012), responsive-item(2.7rem, .012));
+        margin-bottom: 1.5rem;
+    }
+
+    h2 {
+        @include createText($black, 'Segoe-semibold', 1.25rem, 1.4rem);
+        margin: 2rem 0 0.75rem;
+    }
+
+    p,
+    li {
+        @include createText($black, $section-text-family, 1rem, 1.55rem);
+    }
+
+    ul {
+        margin: 0.5rem 0 1rem 1.25rem;
+        list-style: disc;
+    }
+
+    .legal-updated {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 2rem;
+    }
+}
+
 /* footer-section */
 #footer-section {
-    @include createSection(space-between, linear-gradient(to bottom left, $black, $black), 15rem);
+    @include createSection(space-between, linear-gradient(to bottom left, $black, $black), auto);
+    min-height: 15rem;
 
-    .section-content {
-        @include createFlexItem(row, space-between);
+    .footer-inner {
+        width: 100%;
+        @include createFlexItem(column, flex-start, stretch);
+    }
+
+    .footer-inner .section-content {
+        @include createFlexItem(row, space-between, center);
         width: 100%;
 
         .section-img {
@@ -502,6 +657,10 @@ section {
                     margin-left: 1.1rem;
                 }
             }
+
+            .div-conteudo--no-icon a {
+                margin-left: 2.15rem;
+            }
         }
 
         .div-botao {
@@ -509,6 +668,23 @@ section {
 
             h5 {
                 margin-bottom: .7rem;
+            }
+        }
+    }
+
+    .footer-inner .footer-legal {
+        width: 100%;
+        text-align: center;
+        padding-top: 1.25rem;
+        margin-top: 0.75rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+        a {
+            @include createText(rgba(255, 255, 255, 0.75), 'Segoe-semibold', 0.8rem, 1.2rem, center);
+            text-decoration: underline;
+
+            &:hover {
+                color: $dark-orange;
             }
         }
     }
@@ -562,6 +738,15 @@ section {
     #mensagem-section {
         h2 {
             width: 100%
+        }
+    }
+
+    #download.download-section {
+        padding-left: 8%;
+        padding-right: 8%;
+
+        .download-section__lead {
+            font-size: responsive-item(1.05rem, .004);
         }
     }
 
@@ -623,7 +808,7 @@ section {
         padding-bottom: 5%;
         height: fit-content;
 
-        .section-content {
+        .footer-inner .section-content {
             flex-direction: column;
             align-items: center;
 
@@ -642,7 +827,16 @@ section {
                 .div-conteudo {
                     padding: .5rem 0;
                 }
+
+                .div-conteudo--no-icon a {
+                    margin-left: 0;
+                }
             }
+        }
+
+        .footer-inner .footer-legal {
+            margin-top: 0.5rem;
+            padding-top: 1rem;
         }
     }
 

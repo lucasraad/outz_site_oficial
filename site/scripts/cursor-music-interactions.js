@@ -12,6 +12,7 @@ class CursorMusicAnimations {
     this.setupEnhancedHovers();
     this.setupFadeInAnimations();
     this.setupLogoFloat();
+    this.setupTextGlow();
   }
 
   // ===== CURSOR MAGNÉTICO =====
@@ -290,8 +291,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     new PerformanceOptimizer();
-    
-    console.log('Animações do cursor e notas musicais carregadas!');
   }, 300);
 });
 
