@@ -1,0 +1,43 @@
+{
+  "expo": {
+    "name": "OUTz",
+    "slug": "outz",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/logo-outz.png",
+    "scheme": "outz",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/images/logo-outz.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FF541B"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "app.outz.mobile"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/logo-outz.png",
+        "backgroundColor": "#FF541B"
+      },
+      "package": "app.outz.mobile",
+      "edgeToEdgeEnabled": true
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/logo-outz.png"
+    },
+    "plugins": ["expo-router"],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      }
+    }
+  }
+}
