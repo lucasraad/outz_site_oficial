@@ -11,6 +11,8 @@ import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import { hydrateFavorites } from '@/store/appStore';
+
 import { NavigationTheme } from '@/constants/Colors';
 
 export { ErrorBoundary } from 'expo-router';
@@ -31,6 +33,10 @@ const queryClient = new QueryClient({
 });
 
 export default function RootLayout() {
+  useEffect(() => {
+    void hydrateFavorites();
+  }, []);
+
   const [loaded, error] = useFonts({
     ...FontAwesome.font,
   });

@@ -23,7 +23,6 @@
   box-sizing: border-box;
   font-family: "Segoe";
   scroll-behavior: smooth;
-  outline: none;
   letter-spacing: 1px;
   -webkit-tap-highlight-color: transparent;
 }
@@ -886,4 +885,18 @@ section {
     padding-top: 10%;
     padding-bottom: 10%;
   }
+}
+
+/* Navegação por teclado e preferências de acessibilidade. */
+:focus-visible { outline: 3px solid #FF541B; outline-offset: 5px; }
+#mobile-menu :focus-visible, #mobile-menu-toggle:focus-visible { outline-color: #1B1B1B; }
+#menu-section .section-content button.hamburger {
+  padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none;
+}
+#menu-section .section-content button.hamburger:hover { transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important; transition: none !important; scroll-behavior: auto !important;
+  }
+  .section-with-image .section-img { opacity: 1; }
 }

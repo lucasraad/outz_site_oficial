@@ -19,6 +19,25 @@ export type MusicianProfile = {
 };
 
 const MOCK_PROFILES: Record<string, MusicianProfile> = {
+  m2: {
+    id: 'm2',
+    name: 'Bianca Campos',
+    location: 'Tubarão - SC',
+    coverImage: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&q=80',
+    avatarImage: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80',
+    genres: ['Eletrônica', 'Funk'],
+    posts: [],
+  },
+  m3: {
+    id: 'm3',
+    name: 'Lua Mendes',
+    location: 'Tubarão - SC',
+    coverImage: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&q=80',
+    avatarImage: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&q=80',
+    genres: ['MPB', 'Acústico'],
+    posts: [],
+  },
+
   m1: {
     id: 'm1',
     name: 'Pedro Farias',
@@ -87,7 +106,7 @@ const MOCK_PROFILES: Record<string, MusicianProfile> = {
   },
 };
 
-async function fetchMusicianProfile(id: string): Promise<MusicianProfile> {
+export async function fetchMusicianProfile(id: string): Promise<MusicianProfile> {
   await new Promise((resolve) => setTimeout(resolve, 300));
   const profile = MOCK_PROFILES[id];
   if (!profile) {

@@ -22,6 +22,7 @@ export default function EstablishmentProfileScreen() {
   const { data: profile, isLoading, isError } = useEstablishmentProfile(id ?? '');
   const [activeTab, setActiveTab] = useState<ProfileTabKey>('info');
 
+  const hasHydrated = useAppStore((s) => s.hasHydrated);
   const favoriteKey = `establishment:${id}`;
   const isFavorite = useAppStore((s) => s.isFavorite(favoriteKey));
   const toggleFavorite = useAppStore((s) => s.toggleFavorite);
@@ -84,7 +85,8 @@ export default function EstablishmentProfileScreen() {
               <Text className="mt-1 text-body-sm text-content-secondary">{profile.location}</Text>
             </View>
             <Button
-              label="Favoritar"
+              label={isFavorite ? 'Remover favorito' : 'Favoritar'}
+              disabled={!hasHydrated}
               variant="outline"
               size="sm"
               onPress={() => toggleFavorite(favoriteKey)}

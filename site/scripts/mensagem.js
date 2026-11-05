@@ -1,6 +1,7 @@
-function animateOnScroll() {
+(() => {
+function initMessageAnimation() {
     const section = document.getElementById("mensagem-section");
-    const textElement = section.querySelector("h2");
+    const textElement = section?.querySelector("h2");
     if (!textElement) return;
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -14,7 +15,7 @@ function animateOnScroll() {
 
     function typeText() {
         if (index < text.length) {
-            textElement.innerHTML += text[index]; // Adiciona uma letra por vez
+            textElement.textContent += text[index]; // Adiciona uma letra por vez
             index++;
             setTimeout(typeText, 40); // Ajuste o tempo entre cada letra (em milissegundos)
         }
@@ -24,7 +25,7 @@ function animateOnScroll() {
         const sectionTop = section.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
 
-        if (!started && sectionTop < windowHeight - 500) {
+        if (!started && sectionTop < windowHeight * 0.85) {
             started = true;
             typeText();
             window.removeEventListener("scroll", checkScroll); // Remove o listener após iniciar
@@ -35,4 +36,5 @@ function animateOnScroll() {
     checkScroll(); // Verifica se a seção já está visível ao carregar
 }
 
-window.addEventListener("load", animateOnScroll);
+window.addEventListener("load", initMessageAnimation);
+})();

@@ -22,6 +22,7 @@ export default function MusicianProfileScreen() {
   const { data: profile, isLoading, isError } = useMusicianProfile(id ?? '');
   const [activeTab, setActiveTab] = useState<ProfileTabKey>('posts');
 
+  const hasHydrated = useAppStore((s) => s.hasHydrated);
   const favoriteKey = `musician:${id}`;
   const isFavorite = useAppStore((s) => s.isFavorite(favoriteKey));
   const toggleFavorite = useAppStore((s) => s.toggleFavorite);
@@ -78,7 +79,8 @@ export default function MusicianProfileScreen() {
               </Text>
             </View>
             <Button
-              label="Favoritar"
+              label={isFavorite ? 'Remover favorito' : 'Favoritar'}
+              disabled={!hasHydrated}
               variant="outline"
               size="sm"
               onPress={() => toggleFavorite(favoriteKey)}
