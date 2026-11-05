@@ -39,8 +39,7 @@ const MOCK_PROFILES: Record<string, EstablishmentProfile> = {
     status: 'open',
     statusLabel: 'ABERTO',
     hours: {
-      statusText: 'Fechado',
-      nextOpen: 'Abre às 18h',
+      statusText: 'Aberto',
       schedule: 'Seg a Qui · 18h às 00h\nSex e Sáb · 18h às 02h\nDom · Fechado',
     },
     contact: { phone: '(48) 99999-0000' },
@@ -74,7 +73,7 @@ const MOCK_PROFILES: Record<string, EstablishmentProfile> = {
   },
 };
 
-async function fetchEstablishmentProfile(id: string): Promise<EstablishmentProfile> {
+export async function fetchEstablishmentProfile(id: string): Promise<EstablishmentProfile> {
   await new Promise((resolve) => setTimeout(resolve, 300));
   const profile = MOCK_PROFILES[id];
   if (!profile) {

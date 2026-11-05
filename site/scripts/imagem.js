@@ -1,4 +1,5 @@
-function animateOnScroll() {
+(() => {
+function initImageAnimation() {
     const sections = document.querySelectorAll('.section-with-image');
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -25,4 +26,6 @@ function animateOnScroll() {
     checkScroll();
 }
 
-window.addEventListener("load", animateOnScroll);
+window.addEventListener("load", initImageAnimation);
+
+})();

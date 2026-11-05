@@ -103,7 +103,7 @@ const MOCK_FEED: HomeFeed = {
   ],
 };
 
-async function fetchHomeFeed(): Promise<HomeFeed> {
+export async function fetchHomeFeed(): Promise<HomeFeed> {
   await new Promise((resolve) => setTimeout(resolve, 400));
   return MOCK_FEED;
 }

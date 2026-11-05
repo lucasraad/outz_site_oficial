@@ -10,23 +10,23 @@
         content="OUTz conecta você a bares e restaurantes com música ao vivo. Descubra experiências na sua cidade — público, músicos e estabelecimentos.">
     <meta name="theme-color" content="#FF541B">
     <meta name="robots" content="index,follow">
-    <!-- Troque https://outz.com pela URL pública real (canonical, Open Graph, Twitter e QR abaixo). -->
-    <link rel="canonical" href="https://outz.com/">
+    <!-- Endereço atual de hospedagem; ao adotar domínio próprio, atualizar metadados e QR. -->
+    <link rel="canonical" href="https://outz-site-oficial.vercel.app/">
 
     <meta property="og:locale" content="pt_BR">
     <meta property="og:type" content="website">
     <meta property="og:title" content="OUTz — música ao vivo e gastronomia">
     <meta property="og:description"
         content="Encontre o melhor da sua cidade: shows ao vivo, gastronomia e experiências. Para quem curte a noite, para músicos e para estabelecimentos.">
-    <meta property="og:url" content="https://outz.com/">
-    <meta property="og:image" content="https://outz.com/site/assets/logo-outz.png">
+    <meta property="og:url" content="https://outz-site-oficial.vercel.app/">
+    <meta property="og:image" content="https://outz-site-oficial.vercel.app/site/assets/logo-outz.png">
     <meta property="og:image:alt" content="Logo OUTz">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="OUTz — música ao vivo e gastronomia">
     <meta name="twitter:description"
         content="Encontre o melhor da sua cidade: shows ao vivo, gastronomia e experiências.">
-    <meta name="twitter:image" content="https://outz.com/site/assets/logo-outz.png">
+    <meta name="twitter:image" content="https://outz-site-oficial.vercel.app/site/assets/logo-outz.png">
 
     <link rel="stylesheet" href="site/styles/css-compilado/style.css">
     <link rel="stylesheet" href="site/styles/cursor-music-animations.css">
@@ -39,12 +39,12 @@
       "@type": "WebSite",
       "name": "OUTz",
       "description": "Aplicativo e comunidade para descobrir música ao vivo e gastronomia na sua cidade.",
-      "url": "https://outz.com/",
+      "url": "https://outz-site-oficial.vercel.app/",
       "publisher": {
         "@type": "Organization",
         "name": "OUTz",
-        "url": "https://outz.com/",
-        "logo": "https://outz.com/site/assets/logo-outz.png",
+        "url": "https://outz-site-oficial.vercel.app/",
+        "logo": "https://outz-site-oficial.vercel.app/site/assets/logo-outz.png",
         "email": "contato@outz.com",
         "sameAs": ["https://www.instagram.com/outz.oficial/"]
       }
@@ -72,16 +72,16 @@
                 <a href="#estabelecimento-section" class="menu-link">Para estabelecimentos</a>
                 <a href="planos.html" class="menu-link">Planos</a>
                 <a href="#download" class="menu-link">Baixar app</a>
-                <a class="button-white" target="_blank"
+                <a class="button-white" target="_blank" rel="noopener noreferrer"
                     href="https://docs.google.com/forms/d/e/1FAIpQLSfC5Ypiy4VkwZSGc7qSInuI2hi1kOTC6TDzDqp8PwrGFmciSA/viewform">Cadastre-se</a>
             </div>
             <div id="menu-mobile-open"></div>
-            <div id="mobile-menu-toggle" class="hamburger">
+            <button id="mobile-menu-toggle" class="hamburger" type="button" aria-label="Abrir menu" aria-controls="mobile-menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
-            <div id="mobile-menu" class="mobile-menu">
+            </button>
+            <nav id="mobile-menu" class="mobile-menu" aria-label="Navegação mobile" inert>
                 <div id="header-mobile-logo-div">
                     <img src="./site/assets/logo-outz-escrita-white.png" alt="logo OUTz">
                 </div>
@@ -90,10 +90,10 @@
                     <a href="#estabelecimento-section" class="menu-link">Para estabelecimentos</a>
                     <a href="planos.html" class="menu-link">Planos</a>
                     <a href="#download" class="menu-link">Baixar app</a>
-                    <a class="button-white" target="_blank"
+                    <a class="button-white" target="_blank" rel="noopener noreferrer"
                         href="https://docs.google.com/forms/d/e/1FAIpQLSfC5Ypiy4VkwZSGc7qSInuI2hi1kOTC6TDzDqp8PwrGFmciSA/viewform">Cadastre-se</a>
                 </div>
-            </div>
+            </nav>
         </div>
     </section>
 
@@ -155,7 +155,7 @@
                 <span class="store-badge store-badge--soon" title="Disponível em breve">Google Play</span>
             </div>
             <figure class="download-qr">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&amp;data=https%3A%2F%2Foutz.com%2F"
+                <img src="site/assets/qr-site.svg"
                     width="180" height="180" alt="QR code para abrir o site OUTz no celular" loading="lazy"
                     decoding="async">
                 <figcaption>Leia o QR para abrir o site no celular.</figcaption>
@@ -208,7 +208,7 @@
             </div>
             <div class="div-botao">
                 <h5>junte-se ao app</h5>
-                <a class="zi-1 button-orange" target="_blank"
+                <a class="zi-1 button-orange" target="_blank" rel="noopener noreferrer"
                     href="https://docs.google.com/forms/d/e/1FAIpQLSfC5Ypiy4VkwZSGc7qSInuI2hi1kOTC6TDzDqp8PwrGFmciSA/viewform">Cadastre-se</a>
             </div>
             </div>
