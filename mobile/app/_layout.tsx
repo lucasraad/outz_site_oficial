@@ -62,6 +62,7 @@ export default function RootLayout() {
           <StatusBar style="light" />
           <Stack screenOptions={{ headerShown: false }}>
             <Stack.Screen name="(tabs)" />
+            <Stack.Screen name="event/[id]" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="musician/[id]" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen
               name="establishment/[id]"

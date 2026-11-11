@@ -21,14 +21,13 @@ export function DiagonalMatchCard({ item, active = false }: DiagonalMatchCardPro
 
   const openDetails = () => {
     router.push({
-      pathname: '/establishment/[id]',
-      params: { id: item.establishmentId },
+      pathname: '/event/[id]',
+      params: { id: item.eventId },
     });
   };
 
   return (
-    <Pressable
-      onPress={openDetails}
+    <View
       className="overflow-hidden rounded-[22px] bg-surface-dark shadow-lg"
       style={{
         width: CARD_WIDTH,
@@ -41,8 +40,6 @@ export function DiagonalMatchCard({ item, active = false }: DiagonalMatchCardPro
         shadowRadius: 16,
         elevation: active ? 10 : 4,
       }}
-      accessibilityRole="button"
-      accessibilityLabel={`Match ${item.musicianName} e ${item.venueName}`}
     >
       <Svg width={CARD_WIDTH} height={CARD_HEIGHT}>
         <Defs>
@@ -83,7 +80,7 @@ export function DiagonalMatchCard({ item, active = false }: DiagonalMatchCardPro
         <Text className="text-body-sm font-bold text-content-inverse" numberOfLines={1}>
           {item.musicianName}
         </Text>
-        <Text className="mt-0.5 text-caption text-content-inverse/90">{item.timeSlot}</Text>
+        <Text className="mt-0.5 text-caption text-content-inverse/90" numberOfLines={2}>{item.dateLabel}</Text>
         <Text className="text-caption text-content-inverse/80">{item.musicianGenre}</Text>
       </View>
 
@@ -91,7 +88,7 @@ export function DiagonalMatchCard({ item, active = false }: DiagonalMatchCardPro
         <Text className="text-right text-body-sm font-bold text-content-inverse" numberOfLines={1}>
           {item.venueName}
         </Text>
-        <Text className="mt-0.5 text-right text-caption text-content-inverse/90">
+        <Text className="mt-0.5 text-right text-caption text-content-inverse/90" numberOfLines={2}>
           {item.timeSlot}
         </Text>
         <Text className="text-right text-caption text-content-inverse/80">
@@ -101,24 +98,28 @@ export function DiagonalMatchCard({ item, active = false }: DiagonalMatchCardPro
 
       <Pressable
         onPress={openDetails}
+        className="absolute inset-0 z-10"
+        accessibilityRole="button"
+        accessibilityLabel={`Ver evento ${item.eventTitle}`}
+      />
+      <View
+        pointerEvents="none"
         className="absolute z-10 h-9 w-9 items-center justify-center rounded-full bg-primary"
         style={{
           top: splitY - 22,
           left: CARD_WIDTH / 2 - 18,
         }}
-        accessibilityRole="button"
-        accessibilityLabel="Ver match"
       >
         <FontAwesome name="plus" size={14} color="#FFFFFF" />
-      </Pressable>
+      </View>
 
       {active ? (
-        <View className="absolute bottom-0 left-0 right-0 px-3 pb-3 pt-6">
+        <View pointerEvents="box-none" className="absolute bottom-0 left-0 right-0 z-20 px-3 pb-3 pt-6">
           <View className="absolute inset-0 bg-black/45" />
-          <Button label="Ver detalhes" size="sm" fullWidth onPress={openDetails} />
+          <Button label="Ver evento" size="sm" fullWidth onPress={openDetails} />
         </View>
       ) : null}
-    </Pressable>
+    </View>
   );
 }
 
