@@ -50,3 +50,27 @@ Os e-mails e contatos comerciais não são alterados por essa configuração.
 - Aplicativo web no navegador: perfis Bianca/Lua, salvar/listar favoritos, recarregar, abrir perfil e remover com persistência; acesso à conta sinalizado como indisponível.
 - Imagens externas do Unsplash retornaram falha de rede no ambiente de teste; os fluxos de navegação e favoritos passaram sem erros JavaScript.
 - A publicação em produção e testes em dispositivos Android/iOS reais são etapas separadas.
+
+
+## Mobile — primeiro fluxo de eventos
+
+A Home agora abre `/event/[id]`, com título, data, horários, gêneros, descrição, entrada e acesso aos perfis do local e de todos os artistas. Há estados de carregamento, evento inexistente e falha recuperável. O botão Voltar mantém o histórico; sem histórico interno, retorna à Home.
+
+- `mobile/types/event.ts`: contratos dos eventos e dos detalhes resolvidos.
+- `mobile/mocks/events.ts`: três apresentações fictícias, incluindo dois artistas e término no dia seguinte. Tubarão é somente cenário de demonstração; não define a região do lançamento.
+- `mobile/services/events.ts`: consultas e resolução das relações com músicos e estabelecimentos. Fronteira a substituir por HTTP quando a API existir.
+- `mobile/hooks/queries/useEvent.ts`: cache e tentativas; IDs inexistentes não geram retries.
+- `mobile/lib/eventDate.ts`: datas e horários no fuso explícito do evento.
+- `mobile/components/screens/event/EventDetails.tsx`: apresentação visual, separada da navegação.
+- `mobile/app/event/[id].tsx`: rota, navegação e estados da consulta.
+
+Os cards da Home são derivados desse mesmo catálogo para evitar divergência de programação. Distâncias e informações de entrada também são demonstrativas. O evento com dois artistas mantém os dois perfis acessíveis nos detalhes.
+
+### Validar esta entrega
+
+Na pasta `mobile`, executar `npm run typecheck`, `npm test` e `npx expo export --platform web`.
+Para testar em um dispositivo, executar `npx expo start` e abrir no ambiente Expo compatível com o SDK 54. O site institucional na raiz é separado deste aplicativo; o deploy atual da landing não publica automaticamente a pasta mobile.
+
+Aceite verificado em Chromium com toque e viewports 390×844 e 320×844: Home → cada evento → perfil de artista/local → retorno; abertura direta; ID inexistente; datas e virada de dia; sem overflow horizontal da página ou erros JavaScript. As fotos externas foram substituídas por um pixel durante a automação para não depender da rede do Unsplash. Os sete testes de dados e persistência passaram. Android/iOS físicos ainda precisam de conferência.
+
+Busca/filtros, favoritos de eventos, autenticação e API não fazem parte desta entrega.

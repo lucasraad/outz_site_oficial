@@ -1,0 +1,47 @@
+import type { EventRecord } from '../types/event';
+
+// Programação fictícia e fixa: não representa eventos disponíveis para reserva.
+export const MOCK_EVENTS: readonly EventRecord[] = [
+  {
+    id: '1',
+    title: 'Noite de MPB com Gustavo Ramos',
+    description: 'Uma noite de voz e violão para acompanhar seu jantar. Evento fictício para explorar o OUTz.',
+    startsAt: '2026-11-20T19:30:00-03:00',
+    endsAt: '2026-11-20T23:30:00-03:00',
+    timeZone: 'America/Sao_Paulo',
+    establishmentId: '2',
+    musicianIds: ['1'],
+    genres: ['MPB'],
+    coverImage: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&q=80',
+    entry: { label: 'Entrada gratuita', details: 'Consumo no local cobrado separadamente. Informação de demonstração.' },
+    distanceLabel: '4,2 km',
+  },
+  {
+    id: '2',
+    title: 'Sertanejo no Bistro Bar',
+    description: 'Pedro Farias apresenta um repertório sertanejo em uma noite descontraída. Programação de demonstração.',
+    startsAt: '2026-11-21T20:00:00-03:00',
+    endsAt: '2026-11-22T00:30:00-03:00',
+    timeZone: 'America/Sao_Paulo',
+    establishmentId: '1',
+    musicianIds: ['m1'],
+    genres: ['Sertanejo'],
+    coverImage: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&q=80',
+    entry: { label: 'Couvert artístico: R$ 15', details: 'Valor fictício por pessoa. Não há venda de ingressos ou reserva nesta versão.' },
+    distanceLabel: '2,1 km',
+  },
+  {
+    id: '3',
+    title: 'Encontro acústico no Bistro',
+    description: 'Gustavo Ramos e Lua Mendes dividem o palco em uma apresentação acústica. Evento de demonstração.',
+    startsAt: '2026-11-28T21:00:00-03:00',
+    endsAt: '2026-11-29T01:00:00-03:00',
+    timeZone: 'America/Sao_Paulo',
+    establishmentId: '1',
+    musicianIds: ['1', 'm3'],
+    genres: ['MPB', 'Acústico'],
+    coverImage: 'https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=1200&q=80',
+    entry: { label: 'Entrada a confirmar', details: 'Consulte a programação quando eventos reais estiverem disponíveis.' },
+    distanceLabel: '3,5 km',
+  },
+];
